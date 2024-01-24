@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de tu página</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <style>
+        body {
+            background: #18181b;
+        }
+
+        .Iam {
+            padding: 2em 5em;
+            font: normal 20px/30px Montserrat, sans-serif; /* Modifica el tamaño de fuente aquí */
+            color: #ffffff;
+        }
+
+        .Iam p {
+            height: 30px; /* Ajusta la altura para adaptarse al nuevo tamaño de fuente */
+            float: left;
+            margin-right: 0.3em;
+        }
+
+        .Iam b {
+            float: left;
+            overflow: hidden;
+            position: relative;
+            height: 30px;
+            top: 20px;
+        }
+
+        .Iam .innerIam {
+            display: inline-block;
+            color: #e74c3c;
+            position: relative;
+            white-space: nowrap;
+            top: 0;
+            left: 0;
+
+            /* animation */
+            animation: move 5s infinite 1s;
+        }
+
+        @keyframes move {
+            0% { top: 0px; }
+            20% { top: -30px; }
+            40% { top: -60px; }
+            60% { top: -90px; }
+            80% { top: -120px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="Iam">
+        <p>Datos Personales</p>
+        <b>
+            <div class="innerIam">
+                ESPE-L<br />
+                Joel Baño<br />
+                Electronica y Automatizacion<br />
+                Fund. de circuitos eléctricos<br />
+                Ing. Pablo Mena L
+            </div>
+        </b>
+    </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Estudiantil</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+        body {
+            margin: 0;
+            font-family: "Quicksand", "Open Sans", "Helvetica Neue", "Helvetica", sans-serif;
+            overflow: hidden;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        #sidebar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 3.5rem;
+            height: 100%;
+            background-color: #0c1e35;
+            color: #fff;
+            position: fixed;
+            transition: all 300ms ease;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0px 0px 10px #333;
+            border-radius: 1px;
+        }
+
+        #sidebar:hover{
+            width: 14rem;
+        }
+
+        #sidebar * {
+            -webkit-user-select: none;
+              -moz-user-select: none;
+                -ms-user-select: none;
+                    user-select: none;
+        }
+
+        #sidebar .ul{
+            display: table;
+            width: 14rem;
+        }
+
+        #sidebar .ul a {
+            padding: 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #7d84ab;
+            cursor: pointer;
+            display: table-row;
+        }
+
+        #sidebar .ul a .div{
+            padding-left: 10px;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            display: table-cell;
+        }
+
+        #sidebar a{
+            transition: all 300ms ease;
+        }
+
+        #sidebar a:hover {
+            color: #f1f1f1;
+            background: #569cf6;
+        }
+        
+        #sidebar .submenu {
+            width: 1rem;
+            display: none;
+            padding-left: 20px;
+        }
+
+        #sidebar .submenu .ul2{
+            display: table;
+            width: 14rem;
+        }
+
+        #sidebar .submenu .ul2 a {
+            display: table-row;
+            font-size: 16px;
+        }
+
+        #sidebar .submenu .ul2 a .div2{
+            padding-left: 55px;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            display: table-cell;
+        }
+
+        #content {
+            margin-left: 3.5rem;
+            padding: 0px;
+        }
+
+        #content iframe {
+            width: 100%;
+            height: 713px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <div class="ul">
+        <!-- <img src="hogar.svg" alt="Descripción del SVG" width="20" height="20" style="padding-left: 14px;padding-top: 25px;"> -->
+        <a onclick="mostrarContenido('indexd.html')">
+            <img src="hogar.svg" alt="Descripción del SVG" width="25" height="25" style="padding-left: 14px;padding-top: 25px;">
+            <div class="div">Portada</div>
+        </a>
+    <a onclick="mostrarContenido('main/inicio.html')">
+        <img src="usuario.svg" alt="Descripción del SVG" width="25" height="25" style="padding-left: 14px;padding-top: 25px;">
+        <div class="div">Inicio</div>
+        </a>
+    <a onclick="mostrarContenido('parcialx/index.html')">
+        <img src="editar.svg" alt="Descripción del SVG" width="25" height="25" style="padding-left: 14px;padding-top: 25px;">
+        <div class="div">Primer Parcial</div>
+    </a>
+    <div class="submenu" id="submenu1" style="padding-left: 0px;">
+        <div class="ul2">
+            <a onclick="mostrarTema('deberes', 'parcialx/parcial_1.2/index.html')">
+                <div class="div2">Deberes</div>
+                </a>
+            <a onclick="mostrarTema('trabajos', 'parcialx/parcial_1.3/index.html')">
+                <div class="div2">Laboratorio</div>
+            </a>
+            <a onclick="mostrarTema('evaluacion', 'parcialx/parcial_1.4/index.html')">
+                <div class="div2">Evaluación</div>
+            </a>
+        </div>
+    </div>
+
+    <a onclick="mostrarContenido('parcial_2/index.html')">
+        <img src="bulbo.svg" alt="Descripción del SVG" width="25" height="25" style="padding-left: 14px;padding-top: 25px;">
+        <div class="div">Segundo Parcial</div>
+        </a>
+    <div class="submenu" id="submenu2" style="padding-left: 0px;">
+        <div class="ul2">
+            <a onclick="mostrarTema('deberes', 'parcial_1.2/index.html')">
+                <div class="div2">
+                    Deberes
+                </div>
+            </a>
+            <a onclick="mostrarTema('trabajos', 'URL_TRABAJOS')">
+                <div class="div2">
+                    Trabajos
+                </div>
+            </a>
+            <a onclick="mostrarTema('evaluacion', 'URL_EVALUACION')">
+                <div class="div2">
+                    Evaluación
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <a onclick="mostrarContenido('parcial3/index.html')">
+        <img src="gorro-de-graduacion.svg" alt="Descripción del SVG" width="25" height="25" style="padding-left: 14px;padding-top: 25px;">
+        <div class="div">Tercer Parcial</div>
+        </a>
+    <div class="submenu" id="submenu3" style="padding-left: 0px;">
+        <div class="ul2">
+            <a onclick="mostrarTema('deberes', 'URL_DEBERES')">
+                <div class="div2">
+                    Deberes
+                </div>
+            </a>
+            <a onclick="mostrarTema('trabajos', 'URL_TRABAJOS')">
+                <div class="div2">
+                    Trabajos
+                </div>
+                </a>
+            <a onclick="mostrarTema('evaluacion', 'URL_EVALUACION')">
+                <div class="div2">
+                    Evaluación
+                </div>
+            </a>
+        </div>
+    </div>
+    <a onclick="mostrarContenido('gracias/index.html')">
+        <img src="corazon.svg" alt="Descripción del SVG" width="25" height="25" style="padding-left: 14px;padding-top: 25px;">
+        <div class="div">Gracias :)</div>
+    </a>
+    </div>
+</div>
+
+<div id="content">
+    <iframe id="iframeContent" src="" frameborder="0"></iframe>
+</div>
+
+<script>
+    var url = "indexd.html"
+    mostrarContenido(url);
+    function mostrarContenido(url) {
+        document.getElementById('iframeContent').src = url;
+    }
+
+    function mostrarTema(tema, url) {
+        document.getElementById('iframeContent').src = url;
+    }
+
+    // Añadir funcionalidad para mostrar/ocultar submenús al hacer clic
+    var submenus = document.querySelectorAll('.submenu');
+    submenus.forEach(function (submenu) {
+        submenu.previousElementSibling.addEventListener('click', function () {
+            submenus.forEach(function (otherSubmenu) {
+                if (otherSubmenu !== submenu) {
+                    otherSubmenu.style.display = 'none';
+                }
+            });
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+        });
+    });
+</script>
+
+</body>
+</html>

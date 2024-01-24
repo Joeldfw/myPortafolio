@@ -1,0 +1,111 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+  
+      <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+      <meta name="apple-mobile-web-app-title" content="CodePen">
+  
+      <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+      <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+  
+    <title>Peeled Text Transforms</title>
+  
+      <link rel="canonical" href="https://codepen.io/Moiety/pen/OPPKMr">
+    <meta name="viewport" content="width=600">
+  
+  <style>
+  p {
+    color: #fff;
+    font-family: Avenir Next, Helvetica Neue, Helvetica, Tahoma, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+  }
+  p span {
+    display: inline-block;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500;
+    -webkit-font-smoothing: antialiased;
+  }
+  p span::before,
+  p span::after {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    transform-origin: left top;
+    transition: all ease-out 0.3s;
+    content: attr(data-text);
+  }
+  p span::before {
+    z-index: 1;
+    color: rgba(0,0,0,0.2);
+    transform: scale(1.1, 1) skew(0deg, 20deg);
+  }
+  p span::after {
+    z-index: 2;
+    color: #684da3;
+    text-shadow: -1px 0 1px #684da3, 1px 0 1px rgba(0,0,0,0.8);
+    transform: rotateY(-40deg);
+  }
+  p span:hover::before {
+    transform: scale(1.1, 1) skew(0deg, 5deg);
+  }
+  p span:hover::after {
+    transform: rotateY(-10deg);
+  }
+  p span + span {
+    margin-left: 0.3em;
+  }
+  @media (min-width: 20em) {
+    p {
+      font-size: 2em;
+    }
+    p span::before,
+    p span::after {
+      display: block;
+    }
+  }
+  @media (min-width: 30em) {
+    p {
+      font-size: 3em;
+    }
+  }
+  @media (min-width: 40em) {
+    p {
+      font-size: 5em;
+    }
+  }
+  @media (min-width: 60em) {
+    p {
+      font-size: 4em;
+    }
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #18181b;
+  }
+  </style>
+  </head>
+  <body translate="no">
+    <p aria-label="CodePen">
+    <span data-text="2">2</span>
+    <span data-text="D">D</span>
+    <span data-text="O">O</span>
+    <span data-text=" "> </span>
+    <span data-text="D">D</span>
+    <span data-text="E">E</span>
+    <span data-text="B">B</span>
+    <span data-text="E">E</span>
+    <span data-text="R">R</span>
+  </p>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+  </body></html>

@@ -1,0 +1,122 @@
+<html lang="es" style="--y: 279.6363830566406px;"><head>
+    <meta charset="UTF-8">
+    
+      <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+  
+      <meta name="apple-mobile-web-app-title" content="CodePen">
+  
+      <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  
+      <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+  
+      <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+  
+    <title>Tilt-Shift Blur Effect</title>
+  
+      <link rel="canonical" href="https://codepen.io/wakana-k/pen/KKJgQjX">
+  <style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+  :root {
+    --y: 50%;
+    --blur: 0.5vmax;
+    --focus-range: 1vh;
+    --blur-range: 25vh;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    background-color: black;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+    overflow: hidden;
+    
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Montserrat", serif;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  main {
+    z-index: 1;
+  }
+  h1 {
+    font-size: 5vw;
+    color: #0A0A0A;
+  }
+  #bg,
+  #bg_mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: calc(var(--blur) * -1);
+  
+    background: url(https://espe-el.espe.edu.ec/wp-content/uploads/2020/09/Espe-Latacunga.jpg)
+      no-repeat center bottom/cover;
+  }
+  #bg {
+    filter: blur(var(--blur));
+  }
+  #bg_mask {
+    -webkit-mask-image: linear-gradient(
+      transparent,
+      transparent calc(var(--y) - var(--focus-range) - var(--blur-range)),
+      black calc(var(--y) - var(--focus-range)),
+      black var(--y),
+      black calc(var(--y) + var(--focus-range)),
+      transparent calc(var(--y) + var(--focus-range) + var(--blur-range)),
+      transparent
+    );
+            mask-image: linear-gradient(
+      transparent,
+      transparent calc(var(--y) - var(--focus-range) - var(--blur-range)),
+      black calc(var(--y) - var(--focus-range)),
+      black var(--y),
+      black calc(var(--y) + var(--focus-range)),
+      transparent calc(var(--y) + var(--focus-range) + var(--blur-range)),
+      transparent
+    );
+  }
+  </style>
+  </head>
+  <body translate="no">
+  
+  <div id="bg"></div>
+  <div id="bg_mask"></div>
+  <main>
+    <h1>ESPE - L</h1>
+  </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.1/pathseg.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/matter-attractors@0.1.6/build/matter-attractors.min.js"></script>
+        <script id="rendered-js">
+  
+  "use strict";
+  console.clear();
+  
+  var root = document.querySelector(":root");
+  function pointer(e) {
+    root.style.setProperty("--y", e.pageY + "px");
+  }
+  window.addEventListener("pointermove", pointer);
+  window.addEventListener("pointerdown", pointer);
+  //# sourceURL=pen.js
+      </script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+  
+  </body>
+  </html>
