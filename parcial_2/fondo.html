@@ -1,0 +1,190 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    
+  
+      <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+  
+      <meta name="apple-mobile-web-app-title" content="CodePen">
+  
+      <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  
+      <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+  
+  
+  
+    
+      <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+  
+  
+    <title>CodePen - CSS Scroll-Driven Dock</title>
+  
+      <link rel="canonical" href="https://codepen.io/jh3y/pen/LYaBRqL">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  
+    
+    
+  <style>
+  *,
+  *:after,
+  *:before {
+      box-sizing: border-box;
+  }
+  
+  body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      font-family:  "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+      background: url(https://assets.codepen.io/605876/black-bg-opt.jpeg?format=auto), hsl(0 0% 0%);
+    background-size: cover;
+    background-position: center bottom;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: hsl(0 0% 0% / 0.75);
+    z-index: -1;
+  }
+  
+  .controls {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      gap: 1rem;
+      color: white;
+      font-weight: 300;
+  }
+  
+  label {
+      cursor: pointer;
+  }
+  
+  .dock {
+      --spacing: 1.5rem;
+      overflow: hidden;
+      resize: horizontal;
+      width: 422px;
+      min-width: 344px;
+      max-width: calc(100% - 2rem);
+      max-height: calc(56px + (2 * var(--spacing)));
+  }
+  
+  nav {
+      display: flex;
+      gap: var(--spacing);
+      padding: var(--spacing);
+      overflow: auto;
+      background: hsl(0 0% 40% / 0.5);
+      -webkit-backdrop-filter: blur(4px);
+              backdrop-filter: blur(4px);
+      border-radius: 24px;
+      -webkit-clip-path: inset(0 0 0 0 round 24px);
+              clip-path: inset(0 0 0 0 round 24px);
+      -ms-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
+      scrollbar-color: hsl(0 0% 10% / 0.5) transparent;
+      scrollbar-width: thin;
+      box-shadow: 0 1px hsl(0 0% 100% / 0.5) inset;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+  }
+  
+  a {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(hsl(0 0% 100% / 0.15), #0000), hsl(0 0% 4%);
+      border-radius: 8px;
+      flex: 1 0 auto;
+      scroll-snap-align: center;
+      width: 56px;
+      height: 56px;
+      box-shadow:
+          0 -1px hsl(0 0% 0% / 0.5) inset,
+          0 2px 4px hsl(0 0% 0% / 0.5),
+          0 1px hsl(0 0% 100% / 0.5) inset;
+  }
+  
+  a svg {
+      width: 65%;
+      color: white;
+      fill: white;
+  }
+  
+  :root:has(#direction:checked) nav {
+      flex-direction: column;
+      -ms-scroll-snap-type: y mandatory;
+          scroll-snap-type: y mandatory;
+  }
+  :root:has(#direction:checked) .dock {
+      flex-direction: column;
+      min-width: 0;
+      max-height: calc(100vh - 2rem);
+      min-height: 340px;
+      width: unset;
+      resize: vertical;
+      max-width: calc(56px + (var(--spacing) * 2));
+  }
+  
+  @supports (animation-timeline: scroll()) {
+      a {
+          -webkit-animation-name: scale, scale;
+                  animation-name: scale, scale;
+          -webkit-animation-fill-mode: both;
+                  animation-fill-mode: both;
+          -webkit-animation-timing-function: ease-out;
+                  animation-timing-function: ease-out;
+          animation-direction: normal, reverse;
+          animation-timeline: view(inline);
+          animation-range: entry 0 entry 150%, exit -50% exit 100%;
+      }
+  
+      :root:has(#direction:checked) a {
+          animation-timeline: view();
+      }
+  
+      @-webkit-keyframes scale {
+          0% { scale: 0.15; }
+      }
+  
+      @keyframes scale {
+          0% { scale: 0.15; }
+      }
+  }
+  </style>
+  
+    
+    
+    
+  </head>
+  
+  <body translate="no">
+    
+      
+    
+        <script id="rendered-js" type="module">
+  // import gsap from 'https://cdn.skypack.dev/gsap@3.12.0'
+  // import { ScrollTrigger } from 'https://cdn.skypack.dev/gsap@3.12.0/ScrollTrigger'
+  
+  // if (!CSS.supports('animation-timeline: scroll()')) {
+  //   gsap.registerPlugin(ScrollTrigger)
+  //   gsap.set('a', { scale: 0 })
+  //   gsap.to('a', {
+  
+  //   })
+  // }
+  //# sourceURL=pen.js
+      </script>
+  
+    
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+  
+  
+  
+  </body></html>
