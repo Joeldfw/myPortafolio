@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe como fondo</title>
+    <style>
+        html{
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            margin: 0;
+            /*overflow: hidden;*/
+        }
+        #iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+        header {
+            background-color: #22222281;
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+        }
+        header h1 {
+            font-size: 4rem;
+            text-align: center;
+        }
+        
+        .container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        
+        section article{
+            transition: box-shadow 0.3s ease;
+            background-color: #fff;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            padding: 0.25rem 0;
+            cursor: pointer;
+        }
+        
+        section article:hover {
+            box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,0.3);
+        }
+        
+        section article h2, section article p {
+            margin: 1rem;
+        }
+        
+        footer {
+            background-color: #22222281;
+            padding: 3rem;
+            color: white;
+            border-radius: 15px;
+        }
+        
+        footer section {
+            float: right;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+        footer a {
+            transition: color 0.3s ease;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="iframe" src="https://joeldfw.github.io/background/" frameborder="0"></iframe>
+    <div class="content">
+        <header>
+            <h1 id="titulo">Deberes</h1>
+        </header>
+        <section class="container">
+            <article class="post">
+                <h2>Deber No 1</h2>
+                <p>Ejercicios de Inducción y autoinducción</p>
+                <!--<img src="img/imag2.jpg" width="400">-->
+                <iframe src="https://drive.google.com/file/d/1brVZAn6dHlqO0OB2bs4S_ZyYaJNHxQ3A/preview?usp=sharing" width="600" height="400" frameborder="0"></iframe>
+                <p>Realizar los ejercicios de Shaums, capitulo 13 los múltiplos de 5.</p>
+            </article>
+        </section>
+        <footer>
+            <section>
+                <a href="#titulo">Ir al comienzo </a>
+                <a href="mailto:joelbano21@gamil.com"> Contactame aqui!</a>
+            </section>
+            <p>Copyright 2023</p>
+        </footer>
+    </div>
+</body>
+</html>

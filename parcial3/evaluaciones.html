@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe como fondo</title>
+    <style>
+        html{
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            margin: 0;
+            /*overflow: hidden;*/
+        }
+        #iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+        header {
+            background-color: #00000044;
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+        }
+        header h1 {
+            font-size: 4rem;
+            text-align: center;
+        }
+        
+        .container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        
+        section article{
+            transition: box-shadow 0.3s ease;
+            background-color: #00000044;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            padding: 0.25rem 0;
+            cursor: pointer;
+            color: #fff;
+        }
+        
+        section article:hover {
+            box-shadow: 0 0.1rem 0.4rem #e3e3e3bb;
+        }
+        
+        section article h2, section article p {
+            margin: 1rem;
+        }
+        
+        footer {
+            background-color: #00000044;
+            padding: 3rem;
+            color: white;
+            border-radius: 15px;
+        }
+        
+        footer section {
+            float: right;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+        footer a {
+            transition: color 0.3s ease;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="iframe" src="fondo4.html" frameborder="0"></iframe>
+    <div class="content">
+        <header>
+            <h1 id="titulo">Evaluaciones</h1>
+        </header>
+        <section class="container">
+            <article class="post">
+                <h2>Evaluacion No 1</h2>
+                <p>Evaluacion 1 del Tercer Parcial</p>
+                <!--<img src="img/imag2.jpg" width="400">-->
+                <iframe src="https://drive.google.com/file/d/1TuWKIpQH-t4SgOkZJsCBrLKNGE4XATpR/preview?usp=sharing" width="600" height="400" frameborder="0"></iframe>
+                <p>Evaluación a la fecha, en el dominio del tiempo y frecuencia.</p>
+            </article>
+            <article class="post">
+                <h2>Evaluacion No 2</h2>
+                <p>Evaluacion final</p>
+                <!--<img src="img/imag.jpg" width="400">-->
+                <iframe src="https://drive.google.com/file/d/1Bi3xio_Gmmx3pW492o1FfrBH_SQtQps-/preview?usp=sharing" width="600" height="400" frameborder="0"></iframe>
+                <p>Evaluación en CA e inducción y autoinducción.</p>
+            </article>
+        </section>
+        <footer>
+            <section>
+                <a href="#titulo">Ir al comienzo </a>
+                <a href="mailto:joelbano21@gamil.com"> Contactame aqui!</a>
+            </section>
+            <p>Copyright 2023</p>
+        </footer>
+    </div>
+</body>
+</html>
